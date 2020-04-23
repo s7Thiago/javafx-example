@@ -1,15 +1,19 @@
 package gui;
 
 import gui.util.Alerts;
+import gui.util.Constraints;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class ViewController {
+public class ViewController implements Initializable {
 
     @FXML
     private TextField textField1;
@@ -43,4 +47,15 @@ public class ViewController {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+//        Setting up fields to accept numbers only
+        Constraints.setTextFieldDouble(textField1);
+        Constraints.setTextFieldDouble(textField2);
+
+//        Setting up max length to fields
+        Constraints.setTextFieldMaxLength(textField1, 12);
+        Constraints.setTextFieldMaxLength(textField2, 12);
+    }
 }
